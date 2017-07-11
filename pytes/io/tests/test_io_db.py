@@ -9,6 +9,4 @@ class TestUtils(unittest.TestCase):
     # TODO: Make actual tests
 
     def test_init(self):
-
-        df = pytes.query_postgres(engine, shape=Point(137.4, 20).buffer(10.0), ls=range(0,270))
-        engine,meta = pytes.connect_postgres(host='dcos-node1', port=31180)
+        pass
