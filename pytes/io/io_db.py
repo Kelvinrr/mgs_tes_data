@@ -227,7 +227,7 @@ def query_postgres(conn, columns=[], shape=(), year=[],ls=[],local_time=[], verb
     # is done instead
     df = pd.DataFrame()
     for chunk in pd.read_sql(str(query), conn, chunksize=100000):
-        df.append(chunk, ignore_index=True)
-        
+        df = df.append(chunk, ignore_index=True)
+
     df['geom'] = df['geom'].apply(lambda x:wkb.loads(x.hex(), hex=True))
     return gpd.GeoDataFrame(df, geometry='geom')
