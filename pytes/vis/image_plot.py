@@ -4,6 +4,9 @@ import matplotlib.colors as colors
 import matplotlib.image as mpimg
 from pylab import rcParams
 
+import pandas as pd
+from itertools import chain
+
 
 def plot_hist(arr, bins=32,**kwargs):
     """

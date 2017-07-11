@@ -1,6 +1,7 @@
 import geopandas as gpd
 import pandas as pd
 
+from functools import singledispatch
 
 def group_by(df, **options):    # pragma: nocover
     """
@@ -95,7 +96,7 @@ def get_images(dataframes, query=None, col='col', row='row', data='ti'): # pragm
 
     return [arr.transpose()[::,::-1] for arr in arrays]
 
-
+@singledispatch
 def spatial_query(df, geom): # pragma: nocover
     """
     Allows for a query on a dataframe. Returns a new Dataframe with the
