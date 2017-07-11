@@ -52,7 +52,7 @@ install:
 
   - conda install python=$PYTHON_VERSION
   - conda install -c jlaura plio
-  - conda install geoalchemy2
+  - conda install geoalchemy2 geopandas
   - conda install matplotlib pyspark
   - pip install angles
 
