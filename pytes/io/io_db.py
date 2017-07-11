@@ -201,7 +201,7 @@ def query_postgres(conn, columns=[], shape=(), year=[],ls=[],local_time=[], verb
         shape = box(*shape)
 
     metadata = MetaData(conn)
-    metadata.reflect(bind=engine, schema='ti_bins')
+    metadata.reflect(bind=conn, schema='ti_bins')
 
     if isinstance(shape, BaseGeometry):  # We Have a Shapely Geometry, get appropriate table
         regex = re.compile(r'/*time')
