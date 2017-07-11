@@ -38,6 +38,8 @@ import os
 import collections
 import re
 
+__all__ = ["query_postgres", "connect_postgres"]
+
 # TODO: Added more drivers & data sources
 # Cassandra is not tested
 db_driver = {

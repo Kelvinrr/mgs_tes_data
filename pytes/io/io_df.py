@@ -4,6 +4,7 @@ import pandas as pd
 from functools import singledispatch
 import numpy as np
 
+__all__ = ["group_by", "get_images", "spatial_query"]
 
 def group_by(df, **options):    # pragma: nocover
     """

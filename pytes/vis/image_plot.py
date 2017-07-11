@@ -5,8 +5,14 @@ import matplotlib.image as mpimg
 from pylab import rcParams
 
 import pandas as pd
-from itertools import chain
+import geopandas as gpd
 
+from itertools import chain
+from functools import singledispatch
+
+import numpy as np
+
+__all__ = ['plot_hist', 'plot_kde', 'graph_images']
 
 def plot_hist(arr, bins=32,**kwargs):
     """
