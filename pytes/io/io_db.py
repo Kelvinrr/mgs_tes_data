@@ -225,6 +225,9 @@ def query_postgres(conn, columns=[], shape=(), year=[],ls=[],local_time=[], verb
 
     # GeoDataframe.from_postgis doesn't behave well, so manual conversion
     # is done instead
-    df = pd.read_sql(str(query), conn, chunksize=100000)
+    df = pd.DataFrame()
+    for chunk in pd.read_sql(str(query), conn, chunksize=100000):
+        df.append(chunk, ignore_index=True)
+        
     df['geom'] = df['geom'].apply(lambda x:wkb.loads(x.hex(), hex=True))
     return gpd.GeoDataFrame(df, geometry='geom')
