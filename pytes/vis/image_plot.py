@@ -84,7 +84,6 @@ def graph_images(image, cmap='coolwarm',**kwargs):
     Returns
     -------
     """
-    rc = rcPara
     rc = rcParams['figure.figsize']
     rcParams['figure.figsize'] = 7, 7
     plt.imshow(image, interpolation='none', cmap=cmap, **kwargs)
