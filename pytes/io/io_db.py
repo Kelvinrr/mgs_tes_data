@@ -50,7 +50,7 @@ db_datasource = {
     'cassandra' : 'org.apache.spark.sql.cassandra'
 }
 
-def create_spark_session(flavor, config=SparkConf()):
+def create_spark_session(flavor, config=SparkConf()): # pragma: no cover
     """
     Initialize a PySpark instance given some configuration and database type
 
@@ -72,7 +72,7 @@ def create_spark_session(flavor, config=SparkConf()):
     reader = sqlcontext.read.format(db_datasource[flavor])
     return sqlcontext, reader
 
-def spark_from_mongodb(host='localhost', port=27017, db='test', collection='collection'):
+def spark_from_mongodb(host='localhost', port=27017, db='test', collection='collection'): # pragma: nocover
     """
     Create a SparkClient instance for a mongodb database.
     """
@@ -85,7 +85,7 @@ def spark_from_mongodb(host='localhost', port=27017, db='test', collection='coll
     return create_spark_session(flavor='mongodb', config=mongo_config)
 
 
-def connect_postgres(host='localhost', port=5432, user='postgres', password='pass', schema=None, db='tes'):
+def connect_postgres(host='localhost', port=5432, user='postgres', password='pass', schema=None, db='tes'): # pragma: nocover
     """
     Returns a SQLAlchemy Engine and Metadata.
 
@@ -123,7 +123,7 @@ def connect_postgres(host='localhost', port=5432, user='postgres', password='pas
     return engine, metadata
 
 
-def query_postgres(conn, columns=[], shape=(), year=[],ls=[],local_time=[], verbose=False):
+def query_postgres(conn, columns=[], shape=(), year=[],ls=[],local_time=[], verbose=False):  # pragma: nocover
     """
     @TODO Hardcoded for spatiotemporal searches, update for more generic searches?
 

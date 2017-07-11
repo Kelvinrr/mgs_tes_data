@@ -4,6 +4,9 @@ branches:
 only:
   - master
 
+services:
+  - docker
+
 env:
   global:
     - BINSTAR_USER: kelvinrr
@@ -13,6 +16,8 @@ env:
 os:
   # Just stick with Linux for now, OSX on Travis is kinda crummy
   - linux
+
+before_install:
 
 install:
   # We do this conditionally because it saves us some downloading if the

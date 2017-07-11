@@ -2,7 +2,7 @@ import geopandas as gpd
 import pandas as pd
 
 
-def group_by(df, **options):
+def group_by(df, **options):    # pragma: nocover
     """
     @TODO only works with spatiotemporal data, make more generic?
     Groupby Function for dataframes, returns a list of dataframes representing
@@ -70,7 +70,7 @@ def group_by(df, **options):
     return [df for df in [get_group(cdf, key) for key in keys] if df is not None]
 
 
-def get_images(dataframes, query=None, col='col', row='row', data='ti'):
+def get_images(dataframes, query=None, col='col', row='row', data='ti'): # pragma: nocover
     """
     Convert a list of dataframes to a list of images. Images are 2D
     arrays with values being the average of all values in that row and columns.
@@ -96,7 +96,7 @@ def get_images(dataframes, query=None, col='col', row='row', data='ti'):
     return [arr.transpose()[::,::-1] for arr in arrays]
 
 
-def spatial_query(df, geom):
+def spatial_query(df, geom): # pragma: nocover
     """
     Allows for a query on a dataframe. Returns a new Dataframe with the
     new data.
@@ -114,9 +114,9 @@ def spatial_query(df, geom):
     return rdf
 
 @spatial_query.register(list)
-def _(dfs, geom):
+def _(dfs, geom): # pragma: no cover
     try:
-        return [df[df.within(geom) for df in dfs]]
+        return [df[df.within(geom)] for df in dfs]
     except Excaption as e:
         print(e)
         print('Input must be a list of Pandas or GeoPandas DataFrames')
