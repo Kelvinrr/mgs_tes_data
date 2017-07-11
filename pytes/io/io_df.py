@@ -2,6 +2,8 @@ import geopandas as gpd
 import pandas as pd
 
 from functools import singledispatch
+import numpy as np
+
 
 def group_by(df, **options):    # pragma: nocover
     """
