@@ -215,7 +215,6 @@ def query_postgres(conn, columns=[], shape=(), year=[],ls=[],local_time=[], verb
         table = metadata.tables['ti_bins.global']
 
     # Apply all the queries
-    table = metadata.tables['ti_bins.bin25time']
     query = select([table.columns[key] for key in columns] if columns else [table])
     query = queryval(shape, query, 'geom')
     query = queryval(year,query,'year')
